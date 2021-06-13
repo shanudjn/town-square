@@ -13,3 +13,23 @@
     flex-direction: column;
     align-items: flex-start;
 }
+.link-list-item{
+    cursor:pointer;
+}
+.navbar-link{
+    text-decoration: none;
+    
+}
+@media screen and (max-width:1300px) {
+    .navigation-sidebar{
+        display: none;
+    
+    }
+}
+
+@media screen and (max-width:768px) {
+    .navigation-sidebar{
+        display: none;
+    
+    }
+}

@@ -43,5 +43,8 @@
   }
 }
 @media screen and (max-width:411px) {
+  .App{
+  grid-template-columns: 1fr ;
 
+  }
 }

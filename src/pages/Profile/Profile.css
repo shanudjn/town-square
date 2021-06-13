@@ -1,0 +1,34 @@
+.header-profile{
+    border-bottom:1px solid var(--border-color);
+    text-align: left;
+    position: sticky;
+    top: 0;
+}
+.profile-image{
+    width: auto;
+}
+.div-user-bio{
+    display: flex;
+    width: 100%;
+}
+.div-bio{
+    text-align: left;
+}
+.username{
+    /* margin: 0; */
+    padding:0;
+}
+.stacked-list{
+    max-width: 100%;
+    padding:0;
+    height:100vh;
+    border: none;
+}
+.follow-details{
+    display:flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.list-item{
+    text-align: left;
+}

@@ -1,4 +1,30 @@
 .stack{
-    /* border:1px solid green;    */
+    display:flex;
+    flex-direction: column;
   
+}
+.div-feed-card{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    border-bottom:1px solid var(--border-color);
+   
+
+ 
+}
+.feed-card-details{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top:1rem;
+    margin-bottom: 1rem;
+}
+.user-status{
+    text-align: left;
+}
+.user-actions{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    
 }

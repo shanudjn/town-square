@@ -1,3 +1,21 @@
 .div-trending{
     position:fixed
 }
+@media screen and (max-width:1300px) {
+    .sidebar-trending{
+        display: none;
+    
+    }
+}
+
+@media screen and (max-width:768px) {
+    .sidebar-trending{
+        display: none;    
+    }
+}
+@media screen and (max-width:400px) {
+    .sidebar-trending{
+        display: none;
+    
+    }
+}

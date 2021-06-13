@@ -1,0 +1,19 @@
+.nav-mobile{
+    display: none;
+  
+   
+}
+@media screen and (max-width:400px) {
+    .nav-mobile{
+        display: flex;
+        justify-content: space-evenly;
+        position:fixed;
+        bottom:0;    
+        width: 100%;  
+       
+        background-color: inherit;
+        padding-top:0.5rem;
+        padding-bottom: 0.5rem;
+       
+    }
+}
