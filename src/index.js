@@ -8,6 +8,7 @@ import { ThemeProvider } from './context/theme-context';
 import { BrowserRouter as Router } from "react-router-dom";
 
 
+console.log(store.getState())
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>

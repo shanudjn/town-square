@@ -6,7 +6,8 @@ import { useTheme } from './context/theme-context';
 import Home from './features/tweet/Home/Home';
 import Notifications from './pages/Notifications/Notifications';
 import Profile from './pages/Profile/Profile';
-import Login from './pages/Login/Login';
+// import Login from './pages/Login/Login';
+import Login from './features/user/Login/Login'
 
 function App() {
 

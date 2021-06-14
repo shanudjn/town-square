@@ -1,9 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
+
 
 export const userSlice = createSlice({
-    name: "user",
+    name: 'user',
     initialState: {
-        token: null,
-
+        token: "hello",
+        isUserLoggedIn: false
+    },
+    reducers: {
+        loginButtonPressed: (username, password) => {
+            console.log("button clicked", username, password)
+        }
     }
+
 })
+export const { loginButtonPressed } = userSlice.actions;
+
+export default userSlice.reducer

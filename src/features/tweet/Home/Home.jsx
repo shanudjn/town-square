@@ -13,7 +13,7 @@ import { fetchTweets } from '../tweetSlice';
 function Home() {
     const { themeData: { primaryBg, primaryText } } = useTheme()
 
-    const { tweets, status } = useSelector(state => state.tweets)
+    const { tweets, status, token } = useSelector(state => state.tweets)
 
     const dispatch = useDispatch()
 
@@ -23,7 +23,7 @@ function Home() {
         }
     }, [status, dispatch])
 
-    console.log(tweets)
+    console.log(tweets, token)
     return (<>
         <Sidebar />
         <div className="div-feed">
