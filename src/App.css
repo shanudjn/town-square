@@ -2,8 +2,8 @@
   text-align: center;
   /* display: flex;
   justify-content: space-evenly; */
-  display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
+  /* display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr; */
  
   }
 
@@ -43,8 +43,8 @@
   }
 }
 @media screen and (max-width:411px) {
-  .App{
+  /* .App{
   grid-template-columns: 1fr ;
 
-  }
+  } */
 }

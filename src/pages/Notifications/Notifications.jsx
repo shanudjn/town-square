@@ -1,17 +1,20 @@
 import React from 'react'
-import StackedList from '../../components/StackedList/StackedList'
+
+import MobileNav from '../../components/MobileNav/MobileNav';
+import Sidebar from '../../components/Sidebar/Sidebar'
 
 export default function Notifications() {
     return (
-        // style={{ color: primaryText, backgroundColor: primaryBg }}
-        <div className="div-feed">
-            <div className="header-home">
-                <h3>Notification</h3>
+
+        <>
+            <Sidebar />
+            <div className="div-feed">
+                <div className="header-home">
+                    <h3>Notification</h3>
+                </div>
             </div>
-
-            {/* <StackedList /> */}
-
-        </div>
+            <MobileNav />
+        </>
 
     )
 }

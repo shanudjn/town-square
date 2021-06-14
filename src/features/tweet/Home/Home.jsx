@@ -1,13 +1,31 @@
-import React from 'react'
-import StackedList from '../../components/StackedList/StackedList'
-import { useTheme } from '../../context/theme-context'
+import { useEffect } from 'react'
+import StackedList from '../../../components/StackedList/StackedList';
+import Sidebar from '../../../components/Sidebar/Sidebar';
+import MobileNav from '../../../components/MobileNav/MobileNav';
+import { useTheme } from '../../../context/theme-context';
+import { useSelector, useDispatch } from 'react-redux';
 import './Home.css';
+import axios from "axios";
+
+import { fetchTweets } from '../tweetSlice';
 
 
 function Home() {
     const { themeData: { primaryBg, primaryText } } = useTheme()
 
+    const { tweets, status } = useSelector(state => state.tweets)
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (status === "idle") {
+            dispatch(fetchTweets())
+        }
+    }, [status, dispatch])
+
+    console.log(tweets)
     return (<>
+        <Sidebar />
         <div className="div-feed">
             <div className="header-home" style={{ color: primaryText, backgroundColor: primaryBg }}>
                 <h3>Home</h3>
@@ -16,8 +34,6 @@ function Home() {
                 <div>
                     <img alt="avatar" className="avatar" src="https://via.placeholder.com/50" />
                 </div>
-
-
                 <form className='status-form'>
                     <textarea name="status-form" className="form-textarea" placeholder="What's Happening ?"></textarea>
                     <div>
@@ -25,9 +41,10 @@ function Home() {
                     </div>
                 </form>
             </div>
-            <StackedList />
-
+            <StackedList tweets={tweets} />
         </div>
+        <MobileNav />
+
     </>
 
     )

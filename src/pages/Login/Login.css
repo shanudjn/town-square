@@ -1,0 +1,35 @@
+.div-login{
+    /* border:1px solid red; */
+    height: 90vh;
+}
+.div-form{
+    display: flex;
+    flex-direction: column;
+    
+    
+    margin-left :8rem;
+    margin-right:8rem;
+    margin-top:2rem;
+}
+.form-input{
+    margin:0.5rem;
+    padding: 0.5rem;
+}
+@media screen and (max-width:1000px) {
+    .div-form{
+    
+        margin-left :0;
+        margin-right:0;
+        margin-top:0;
+    }
+    
+  }
+@media screen and (max-width:411px) {
+    .div-form{
+    
+        margin-left :0;
+        margin-right:0;
+        margin-top:0;
+    }
+    
+  }

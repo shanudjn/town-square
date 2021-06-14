@@ -4,13 +4,13 @@ import "./MobileNav.css";
 function MobileNav() {
     return (
         <div className="nav-mobile">
-            <span class="material-icons">
+            <span className="material-icons">
                 home
             </span>
-            <span class="material-icons">
+            <span className="material-icons">
                 notifications
             </span>
-            <span class="material-icons">
+            <span className="material-icons">
                 person
             </span>
 

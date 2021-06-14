@@ -20,7 +20,7 @@
     text-decoration: none;
     
 }
-@media screen and (max-width:1300px) {
+@media screen and (max-width:1000px) {
     .navigation-sidebar{
         display: none;
     

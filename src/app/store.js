@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import tweetSliceReducer from '../features/tweet/tweetSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    tweets: tweetSliceReducer,
   },
 });
+
+export default store;
