@@ -47,6 +47,18 @@ export const upvoteTweet = createAsyncThunk('tweet/upvoteTweet', async ({ upvote
     console.log(upvoteTweetResponse)
     return upvoteTweetResponse.data
 })
+export const removeUpvote = createAsyncThunk('tweet/removeupvote', async ({ upvoters, tweetId, token }) => {
+    console.log(tweetId, token)
+    const removeUpvoteResponse = await axios({
+        method: "DELETE",
+        url: baseUrl + `tweet/upvote/${tweetId}`,
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    console.log(removeUpvoteResponse)
+    return removeUpvoteResponse.data
+})
 
 export const tweetSlice = createSlice({
     name: 'tweets',
@@ -81,7 +93,7 @@ export const tweetSlice = createSlice({
         [upvoteTweet.fulfilled]: (state, action) => {
             console.log("successs in upvoting tweet");
             console.log(action.payload.tweetToUpvote._id)
-            const upvotedTweetIndex = state.tweets.findIndex((tweet) => tweet._id = action.payload.tweetToUpvote._id);
+            const upvotedTweetIndex = state.tweets.findIndex((tweet) => tweet._id === action.payload.tweetToUpvote._id);
             console.log(upvotedTweetIndex)
             state.tweets[upvotedTweetIndex].noOfUpvotes += 1
             state.tweets[upvotedTweetIndex].upvoters.push(action.payload.userId)
@@ -89,6 +101,20 @@ export const tweetSlice = createSlice({
         },
         [upvoteTweet.rejected]: (state, action) => {
             console.log("failed in upvoting tweet")
+
+        },
+        [removeUpvote.fulfilled]: (state, action) => {
+            console.log("succes in removing upvote");
+            console.log(action.payload)
+            const indexOfRemovedTweet = state.tweets.findIndex((tweet) => tweet._id === action.payload.tweet._id)
+            state.tweets[indexOfRemovedTweet].noOfUpvotes -= 1
+            const indexOfRemovedUpvoter = state.tweets[indexOfRemovedTweet].upvoters.findIndex((upvoter) => upvoter === action.payload.userId)
+            console.log(indexOfRemovedUpvoter)
+            state.tweets[indexOfRemovedTweet].upvoters.splice(indexOfRemovedUpvoter, 1)
+        },
+        [removeUpvote.rejected]: (state, action) => {
+            console.log("failure in removing upvote");
+
         }
 
     }

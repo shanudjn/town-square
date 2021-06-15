@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './StackedList.css';
-import { upvoteTweet } from '../../features/tweet/tweetSlice';
+import { removeUpvote, upvoteTweet } from '../../features/tweet/tweetSlice';
 
 function StackedList({ tweets }) {
 
@@ -10,18 +10,23 @@ function StackedList({ tweets }) {
     const dispatch = useDispatch()
 
     function upVoteButtonClicked(upvoters, userId, tweetId) {
-        // console.log("handling like button")
-        // console.log(upvoters, userId)
         const isTheTweetIsLikedByUser = upvoters.find((item) => item === userId)
-        // console.log(isTheTweetIsLikedByUser)
         if (isTheTweetIsLikedByUser) {
-            console.log("dislike the tweet");
-
+            console.log("remove upvote");
+            dispatch(removeUpvote({ upvoters, tweetId, token }))
 
         }
         else {
-            console.log("like the tweet")
+            console.log("upvote tweet")
             dispatch(upvoteTweet({ upvoters, tweetId, token }))
+        }
+    }
+    function downVoteButtonClicked(downvoters, userId, tweetId) {
+        const isThetweetDislikedByUser = downvoters.find((item) => item === userId)
+        if (isThetweetDislikedByUser) {
+            console.log("remove downvote");
+        } else {
+            console.log("downvote tweet")
         }
     }
 
@@ -31,7 +36,7 @@ function StackedList({ tweets }) {
         <>
             <div className="stack">
                 {
-                    tweets.map(({ _id, tweetedBy: { username }, tweet, upvoters, noOfUpvotes, noOfDownVotes }) => {
+                    tweets.map(({ _id, tweetedBy: { username }, tweet, upvoters, downvoters, noOfUpvotes, noOfDownVotes }) => {
                         return (
                             <div className="div-feed-card" key={_id}>
                                 <div>
@@ -47,7 +52,7 @@ function StackedList({ tweets }) {
                                         </span>
                                         <span>{noOfUpvotes}</span>
 
-                                        <span className="material-icons" >
+                                        <span className="material-icons" onClick={() => downVoteButtonClicked(upvoters, userId, _id)}>
                                             arrow_downward
                                         </span>
                                         <span>{noOfDownVotes}</span>
