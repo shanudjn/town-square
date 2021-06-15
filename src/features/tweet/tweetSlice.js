@@ -35,6 +35,19 @@ export const postTweet = createAsyncThunk('tweets/postTweet', async ({ tweet, to
     return postTweetResponse.data
 })
 
+export const upvoteTweet = createAsyncThunk('tweet/upvoteTweet', async ({ upvoters, tweetId, token }) => {
+    console.log(upvoters, tweetId)
+    const upvoteTweetResponse = await axios({
+        method: 'POST',
+        url: baseUrl + `tweet/upvote/${tweetId}`,
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    console.log(upvoteTweetResponse)
+    return upvoteTweetResponse.data
+})
+
 export const tweetSlice = createSlice({
     name: 'tweets',
     initialState: {
@@ -59,11 +72,23 @@ export const tweetSlice = createSlice({
             console.log("Success Posting Tweet")
             console.log(action.payload)
             state.tweets.unshift(action.payload.newTweet)
-            // return { ...state, tweets: [...state.tweets, action.payload.newTweet] }
+
         },
         [postTweet.rejected]: (state, action) => {
             console.log("Failed Posting Tweet")
             console.log(action.payload)
+        },
+        [upvoteTweet.fulfilled]: (state, action) => {
+            console.log("successs in upvoting tweet");
+            console.log(action.payload.tweetToUpvote._id)
+            const upvotedTweetIndex = state.tweets.findIndex((tweet) => tweet._id = action.payload.tweetToUpvote._id);
+            console.log(upvotedTweetIndex)
+            state.tweets[upvotedTweetIndex].noOfUpvotes += 1
+            state.tweets[upvotedTweetIndex].upvoters.push(action.payload.userId)
+
+        },
+        [upvoteTweet.rejected]: (state, action) => {
+            console.log("failed in upvoting tweet")
         }
 
     }

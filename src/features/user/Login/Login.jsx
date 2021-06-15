@@ -22,13 +22,7 @@ export default function Login() {
         navigate('/')
 
     }
-    const showMessage = (message) => {
-        return (
-            <p class="alert alert-error">
-                There was an error processing your request
-            </p>
-        )
-    }
+
 
     console.log(token)
     return (
@@ -46,10 +40,6 @@ export default function Login() {
                         </form>
                     </div>
                 </div>
-            }
-
-            {
-                (status === "FAILED") ? <p>Error Logging In</p> : ""
             }
 
         </>

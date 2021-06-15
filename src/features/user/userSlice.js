@@ -38,7 +38,9 @@ export const userSlice = createSlice({
     initialState: {
         token: "",
         isUserLoggedIn: false,
-        status: ""
+        status: "",
+        userId: ''
+        // user: { userId: "", username: "" }
     },
     reducers: {
 
@@ -52,6 +54,8 @@ export const userSlice = createSlice({
         [loginUserWithCredentials.fulfilled]: (state, action) => {
             state.isUserLoggedIn = true
             state.token = action.payload.token
+            // state.user = { userId: action.payload.userId, username: action.payload.username }
+            state.userId = action.payload.userId
             state.status = "SUCCESS"
         },
         [loginUserWithCredentials.rejected]: (state, action) => {
