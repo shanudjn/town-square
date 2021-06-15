@@ -6,8 +6,8 @@ import { baseUrl } from "../../api/api";
 
 export const fetchTweets = createAsyncThunk('tweets/fetchTweets', async (token) => {
 
-    console.log("Fetching Tweets")
-    console.log("Token", token)
+    // console.log("Fetching Tweets")
+    // console.log("Token", token)
     const fetchTweetsResponse = await axios({
         method: 'GET',
         url: baseUrl + 'tweets',
@@ -17,6 +17,22 @@ export const fetchTweets = createAsyncThunk('tweets/fetchTweets', async (token) 
     })
     console.log(fetchTweetsResponse)
     return fetchTweetsResponse.data
+})
+
+export const postTweet = createAsyncThunk('tweets/postTweet', async ({ tweet, token }) => {
+    // console.log(tweet, token)
+    const postTweetResponse = await axios({
+        method: 'POST',
+        url: baseUrl + 'tweet',
+        data: {
+            tweet: tweet
+        },
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    console.log(postTweetResponse);
+    return postTweetResponse.data
 })
 
 export const tweetSlice = createSlice({
@@ -39,6 +55,16 @@ export const tweetSlice = createSlice({
             state.status = 'failed'
             state.error = action.error.message
         },
+        [postTweet.fulfilled]: (state, action) => {
+            console.log("Success Posting Tweet")
+            console.log(action.payload)
+            state.tweets.unshift(action.payload.newTweet)
+            // return { ...state, tweets: [...state.tweets, action.payload.newTweet] }
+        },
+        [postTweet.rejected]: (state, action) => {
+            console.log("Failed Posting Tweet")
+            console.log(action.payload)
+        }
 
     }
 })
