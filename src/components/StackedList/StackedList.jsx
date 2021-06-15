@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './StackedList.css';
-import { removeUpvote, upvoteTweet } from '../../features/tweet/tweetSlice';
+import { removeUpvote, upvoteTweet, downvoteTweet, removeDownvote } from '../../features/tweet/tweetSlice';
 
 function StackedList({ tweets }) {
 
@@ -25,8 +25,10 @@ function StackedList({ tweets }) {
         const isThetweetDislikedByUser = downvoters.find((item) => item === userId)
         if (isThetweetDislikedByUser) {
             console.log("remove downvote");
+            dispatch(removeDownvote({ downvoters, tweetId, token }))
         } else {
             console.log("downvote tweet")
+            dispatch(downvoteTweet({ downvoters, tweetId, token }))
         }
     }
 
@@ -52,7 +54,7 @@ function StackedList({ tweets }) {
                                         </span>
                                         <span>{noOfUpvotes}</span>
 
-                                        <span className="material-icons" onClick={() => downVoteButtonClicked(upvoters, userId, _id)}>
+                                        <span className="material-icons" onClick={() => downVoteButtonClicked(downvoters, userId, _id)}>
                                             arrow_downward
                                         </span>
                                         <span>{noOfDownVotes}</span>
