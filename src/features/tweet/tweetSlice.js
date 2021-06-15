@@ -1,9 +1,20 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { baseUrl } from "../../api/api";
 
 
-export const fetchTweets = createAsyncThunk('tweets/fetchTweets', async () => {
-    const fetchTweetsResponse = await axios.get('http://localhost:8080/api/tweets');
+export const fetchTweets = createAsyncThunk('tweets/fetchTweets', async (token) => {
+
+    console.log("Fetching Tweets")
+    console.log("Token", token)
+    const fetchTweetsResponse = await axios({
+        method: 'GET',
+        url: baseUrl + 'tweets',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
     console.log(fetchTweetsResponse)
     return fetchTweetsResponse.data
 })

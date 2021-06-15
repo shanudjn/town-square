@@ -15,7 +15,7 @@ function Sidebar() {
                 </div>
                 <div className="section-links">
                     <div className="links-list">
-                        <Link className="navbar-link" to='/home' style={{ color: primaryText, backgroundColor: primaryBg }}><h3 className="link-list-item">Home</h3></Link>
+                        <Link className="navbar-link" to='/' style={{ color: primaryText, backgroundColor: primaryBg }}><h3 className="link-list-item">Home</h3></Link>
                         <Link className="navbar-link" to='/notifications' style={{ color: primaryText, backgroundColor: primaryBg }} ><h3 className="link-list-item">Notifications</h3></Link>
                         <Link className="navbar-link" to='/profile' style={{ color: primaryText, backgroundColor: primaryBg }} ><h3 className="link-list-item">Profile</h3></Link>
 

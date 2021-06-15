@@ -13,13 +13,14 @@ import { fetchTweets } from '../tweetSlice';
 function Home() {
     const { themeData: { primaryBg, primaryText } } = useTheme()
 
-    const { tweets, status, token } = useSelector(state => state.tweets)
+    const { tweets, status } = useSelector(state => state.tweets);
+    const { token } = useSelector(state => state.user)
 
     const dispatch = useDispatch()
 
     useEffect(() => {
         if (status === "idle") {
-            dispatch(fetchTweets())
+            dispatch(fetchTweets(token))
         }
     }, [status, dispatch])
 

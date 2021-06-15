@@ -6,6 +6,8 @@ import { useTheme } from './context/theme-context';
 import Home from './features/tweet/Home/Home';
 import Notifications from './pages/Notifications/Notifications';
 import Profile from './pages/Profile/Profile';
+
+import { PrivateRoute } from './features/user/PrivateRoute/PrivateRoute';
 // import Login from './pages/Login/Login';
 import Login from './features/user/Login/Login'
 
@@ -17,11 +19,11 @@ function App() {
     <div className="App" style={{ color: primaryText, backgroundColor: primaryBg }}>
 
       <Routes>
-        <Route path="/" element={<Login />} />
+        {/* <Route path="/" element={<Login />} /> */}
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <PrivateRoute path="/" element={<Home />} />
       </Routes>
 
     </div>
