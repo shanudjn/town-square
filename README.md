@@ -1,10 +1,10 @@
 # Town Square v1.0
 
-This project is hosted on  [Netlify](https://knowlib.netlify.app/).
+This project is hosted on  [Netlify](https://town-square.netlify.app/).
 
 ## Technologies used
 The follwing the concepts in ReactJS that were implemented in this project
-1. React with Typescript
+1. React, Redux-Toolkit
 2. Node
 3. Express
 4. MongoDb
