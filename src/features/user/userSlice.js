@@ -32,15 +32,47 @@ export const loginUserWithCredentials = createAsyncThunk(
         }
     }
 )
+export const getUserProfile = createAsyncThunk('user/userprofile', async (token) => {
+    const getUserProfileResponse = await axios({
+        method: 'GET',
+        url: baseUrl + 'user',
+
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    console.log(getUserProfileResponse);
+    return getUserProfileResponse.data;
+})
+
+export const getUserTweets = createAsyncThunk('user/userTweets', async (token) => {
+    const getUserTweetsResponse = await axios({
+
+        method: 'GET',
+        url: baseUrl + 'profile/tweets',
+
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    console.log(getUserTweetsResponse);
+    return getUserTweetsResponse.data;
+
+
+})
 
 export const userSlice = createSlice({
     name: 'user',
     initialState: {
         token: "",
         isUserLoggedIn: false,
-        status: "",
-        userId: ''
-        // user: { userId: "", username: "" }
+
+        userId: '',
+        userProfile: {},
+        userProfileStatus: "idle",
+        userTweets: [],
+        userTweetsStatus: "idle"
+
     },
     reducers: {
 
@@ -56,12 +88,22 @@ export const userSlice = createSlice({
             state.token = action.payload.token
             // state.user = { userId: action.payload.userId, username: action.payload.username }
             state.userId = action.payload.userId
-            state.status = "SUCCESS"
+
         },
         [loginUserWithCredentials.rejected]: (state, action) => {
             console.log("rejected")
             state.isUserLoggedIn = false
-            state.status = "FAILED"
+
+        },
+        [getUserProfile.fulfilled]: (state, action) => {
+            console.log("getting user profile success");
+            console.log(action.payload)
+            state.userProfile = action.payload.userProfile
+        },
+        [getUserTweets.fulfilled]: (state, action) => {
+            console.log("getting user tweets success");
+            console.log(action.payload)
+            state.userTweets = action.payload.findTweetsByUser
         }
     }
 

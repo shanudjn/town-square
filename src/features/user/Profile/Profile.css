@@ -3,6 +3,9 @@
     text-align: left;
     position: sticky;
     top: 0;
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
 }
 .profile-image{
     width: auto;
@@ -14,9 +17,17 @@
 .div-bio{
     text-align: left;
 }
-.username{
+.profile-username{
     /* margin: 0; */
     padding:0;
+}
+.profile-image{
+    width: 5rem;
+    margin-right:0.5rem;
+}
+.div-tweet{
+    text-align: left;
+    margin-left:0.5rem;
 }
 .stacked-list{
     max-width: 100%;

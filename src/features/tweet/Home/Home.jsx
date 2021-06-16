@@ -40,7 +40,7 @@ function Home() {
             </div>
             <div className="div-status">
                 <div>
-                    <img alt="avatar" className="avatar" src="https://via.placeholder.com/50" />
+                    <img alt="avatar" className="avatar" src="https://avatars.dicebear.com/api/micah/teen.svg" />
                 </div>
                 <form className='status-form' onSubmit={onTweetButtonClicked}>
                     <textarea name="status-form" className="form-textarea" placeholder="What's Happening ?" onChange={e => setTweet(e.target.value)}></textarea>

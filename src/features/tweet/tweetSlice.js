@@ -72,7 +72,7 @@ export const downvoteTweet = createAsyncThunk('tweet/downvoteTweet', async ({ do
     console.log(downvoteTweetResponse)
     return downvoteTweetResponse.data
 })
-export const removeDownvote = createAsyncThunk('tweet/removeupvote', async ({ downvoters, tweetId, token }) => {
+export const removeDownvote = createAsyncThunk('tweet/removedownvote', async ({ downvoters, tweetId, token }) => {
     console.log(tweetId, token)
     const removeDownvoteResponse = await axios({
         method: "DELETE",

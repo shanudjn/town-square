@@ -42,22 +42,27 @@ function StackedList({ tweets }) {
                         return (
                             <div className="div-feed-card" key={_id}>
                                 <div>
-                                    <img alt="avatar" className="avatar" src="https://via.placeholder.com/50" />
+                                    <img alt="avatar" className="avatar" src="https://avatars.dicebear.com/api/micah/teen.svg" />
                                 </div>
                                 <div className="feed-card-details">
-                                    <span className="username">{username}</span>
+                                    <h4 className="username">{username}</h4>
                                     <p className="user-status">{tweet}</p>
                                     <div className="user-actions">
 
-                                        <span className="material-icons" style={{ color: "#e5e7eb" }} onClick={() => upVoteButtonClicked(upvoters, userId, _id)}>
-                                            arrow_upward
-                                        </span>
-                                        <span>{noOfUpvotes}</span>
+                                        <div className="div-vote">
+                                            <span className="material-icons vote-icon" onClick={() => upVoteButtonClicked(upvoters, userId, _id)}>
+                                                arrow_upward
+                                            </span>
+                                            <span>{noOfUpvotes}</span>
+                                        </div>
 
-                                        <span className="material-icons" onClick={() => downVoteButtonClicked(downvoters, userId, _id)}>
-                                            arrow_downward
-                                        </span>
-                                        <span>{noOfDownVotes}</span>
+                                        <div className="div-vote">
+                                            <span className="material-icons vote-icon" onClick={() => downVoteButtonClicked(downvoters, userId, _id)}>
+                                                arrow_downward
+                                            </span>
+                                            <span>{noOfDownVotes}</span>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
