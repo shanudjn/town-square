@@ -11,6 +11,10 @@
   height: 40vmin;
   pointer-events: none;
 }
+/**/
+.header-page{
+  margin-left : 1rem
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

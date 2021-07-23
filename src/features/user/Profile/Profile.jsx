@@ -34,13 +34,13 @@ export default function Profile() {
         navigate('/login')
     }
 
-    console.log("userTweets", userTweets)
+    // console.log("userTweets", userTweets)
     return (
         <>
             <Sidebar />
             <div className="div-feed">
                 <div className="header-profile" >
-                    <h3>Profile</h3>
+                    <h3 className="header-page" >Profile</h3>
                     <div className="logout-button">
                         <button className="btn btn-primary" onClick={() => logoutButtonPressed()}>Log Out</button>
                     </div>

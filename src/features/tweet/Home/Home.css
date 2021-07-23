@@ -5,14 +5,14 @@
     margin-right: 30rem;
     display: flex;
     flex-direction: column;
-    height:100vh;
+    height:100%;
 }
 .header-home{
     /* position: fixed; */
     border-bottom:1px solid var(--border-color);
     text-align: left;
     position: sticky;
-    top: 0;
+    top: 0;  
    
 }
 .btn{
@@ -50,10 +50,18 @@
     outline:none;
     background-color: inherit;
 }
+.right-pane{
+    width: 18rem;
+    position: fixed;
+    top:-1rem;
+    right: 10rem;
+    margin-top: 0;
+}
 @media screen and (max-width:1000px) {
     .div-feed{
         margin-left: 0;
         margin-right: 0;
     
     }
+    
 }

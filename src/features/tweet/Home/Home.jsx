@@ -31,12 +31,12 @@ function Home() {
     }
 
 
-    console.log(tweets, token)
+    // console.log(tweets, token)
     return (<>
         <Sidebar />
         <div className="div-feed">
             <div className="header-home" style={{ color: primaryText, backgroundColor: primaryBg }}>
-                <h3>Home</h3>
+                <h3 className="header-page">Home</h3>
             </div>
             <div className="div-status">
                 <div>
@@ -50,7 +50,18 @@ function Home() {
                 </form>
             </div>
             <StackedList tweets={tweets} />
+
         </div>
+        {/* <p>Hello</p> */}
+        {/* <div className="right-pane">
+            <ul class="stacked-list">
+                <li class="list-item"><h3>What's Happening</h3></li>
+                <li class="list-item">Two</li>
+                <li class="list-item">Three</li>
+                <li class="list-item">Four</li>
+                <li class="list-item">Five</li>
+            </ul>
+        </div> */}
         <MobileNav />
 
     </>

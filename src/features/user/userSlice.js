@@ -18,8 +18,8 @@ export const loginUserWithCredentials = createAsyncThunk(
                     }
                 }
             })
-            console.log(username, password)
-            console.log(loginResponse)
+            // console.log(username, password)
+            // console.log(loginResponse)
             if (loginResponse.status === 200) {
                 localStorage?.setItem("login", JSON.stringify({ isUserLogIn: true, token: loginResponse.data.token }))
 
@@ -41,7 +41,7 @@ export const getUserProfile = createAsyncThunk('user/userprofile', async (token)
             'Authorization': `Bearer ${token}`
         }
     })
-    console.log(getUserProfileResponse);
+    // console.log(getUserProfileResponse);
     return getUserProfileResponse.data;
 })
 
@@ -55,7 +55,7 @@ export const getUserTweets = createAsyncThunk('user/userTweets', async (token) =
             'Authorization': `Bearer ${token}`
         }
     })
-    console.log(getUserTweetsResponse);
+    // console.log(getUserTweetsResponse);
     return getUserTweetsResponse.data;
 
 
@@ -91,18 +91,18 @@ export const userSlice = createSlice({
 
         },
         [loginUserWithCredentials.rejected]: (state, action) => {
-            console.log("rejected")
+            // console.log("rejected")
             state.isUserLoggedIn = false
 
         },
         [getUserProfile.fulfilled]: (state, action) => {
-            console.log("getting user profile success");
-            console.log(action.payload)
+            // console.log("getting user profile success");
+            // console.log(action.payload)
             state.userProfile = action.payload.userProfile
         },
         [getUserTweets.fulfilled]: (state, action) => {
-            console.log("getting user tweets success");
-            console.log(action.payload)
+            // console.log("getting user tweets success");
+            // console.log(action.payload)
             state.userTweets = action.payload.findTweetsByUser
         }
     }

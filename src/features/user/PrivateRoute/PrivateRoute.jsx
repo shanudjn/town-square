@@ -3,7 +3,7 @@ import { Route, Navigate, useLocation } from "react-router";
 
 export const PrivateRoute = ({ path, ...props }) => {
     const { isUserLoggedIn } = useSelector((state) => state.user);
-    console.log("isUserLoggedIn", isUserLoggedIn);
+    // console.log("isUserLoggedIn", isUserLoggedIn);
 
     const location = useLocation()
 
