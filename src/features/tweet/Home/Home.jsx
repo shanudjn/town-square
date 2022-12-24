@@ -6,6 +6,7 @@ import './Home.css';
 import axios from "axios";
 
 import { fetchTweets, postTweet } from '../tweetSlice';
+import SidebarRight from '../../../components/SideBarRight/SidebarRight';
 
 
 function Home() {
@@ -53,15 +54,7 @@ function Home() {
 
         </div>
         {/* <p>Hello</p> */}
-        {/* <div className="right-pane">
-            <ul class="stacked-list">
-                <li class="list-item"><h3>What's Happening</h3></li>
-                <li class="list-item">Two</li>
-                <li class="list-item">Three</li>
-                <li class="list-item">Four</li>
-                <li class="list-item">Five</li>
-            </ul>
-        </div> */}
+        {/* <SidebarRight /> */}
         <MobileNav />
 
     </>

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './StackedList.css';
 import { removeUpvote, upvoteTweet, downvoteTweet, removeDownvote } from '../../features/tweet/tweetSlice';
@@ -6,6 +6,8 @@ import { removeUpvote, upvoteTweet, downvoteTweet, removeDownvote } from '../../
 function StackedList({ tweets }) {
 
     const { userId, token } = useSelector(state => state.user);
+
+
 
     const dispatch = useDispatch()
 
@@ -51,14 +53,14 @@ function StackedList({ tweets }) {
 
                                         <div className="div-vote">
                                             <span className="material-icons vote-icon" onClick={() => upVoteButtonClicked(upvoters, userId, _id)}>
-                                                arrow_upward
+                                                thumb_up_off_alt
                                             </span>
                                             <span>{noOfUpvotes}</span>
                                         </div>
 
                                         <div className="div-vote">
                                             <span className="material-icons vote-icon" onClick={() => downVoteButtonClicked(downvoters, userId, _id)}>
-                                                arrow_downward
+                                                thumb_down_off_alt
                                             </span>
                                             <span>{noOfDownVotes}</span>
                                         </div>

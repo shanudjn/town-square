@@ -1,20 +1,25 @@
 import React from 'react';
 import "./MobileNav.css";
+import { Link } from "react-router-dom"
 
 function MobileNav() {
     return (
         <div className="nav-mobile">
-            <span className="material-icons">
-                home
-            </span>
-            <span className="material-icons">
-                notifications
-            </span>
-            <span className="material-icons">
-                person
-            </span>
-
-        </div>
+            <Link to="/">
+                <span className="material-icons">
+                    home
+                </span></Link>
+            <Link to="/notifications">
+                <span className="material-icons">
+                    notifications
+                </span>
+            </Link>
+            <Link to="/profile">
+                <span className="material-icons">
+                    person
+                </span>
+            </Link>
+        </div >
     )
 }
 

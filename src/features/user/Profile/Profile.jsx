@@ -3,9 +3,11 @@ import "./Profile.css";
 import { useTheme } from '../../../context/theme-context'
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Sidebar from '../../../components/Sidebar/Sidebar';
+
 import MobileNav from '../../../components/MobileNav/MobileNav';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserProfile, getUserTweets } from '../userSlice';
+import SidebarRight from '../../../components/SideBarRight/SidebarRight';
 export default function Profile() {
 
     const { userProfileStatus, userProfile, token, userTweets, userTweetsStatus } = useSelector(state => state.user);
@@ -70,20 +72,10 @@ export default function Profile() {
                             )
                         })
                     }
-                    {/* <li className="list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere minima nobis dignissimos amet necessitatibus, molestias error impedit quam! Iusto eaque quidem, quis labore praesentium necessitatibus hic! Fugit voluptatibus hic amet.</li>
-                    <li className="list-item">Two</li>
-                    <li className="list-item">Three</li>
-                    <li className="list-item">Four</li>
-                    <li className="list-item">Five</li> */}
-                    {/* {
-                        userTweets && userTweets.map((tweet) => {
-                            return (
-                                <li className="list-item">{tweet.tweet}</li>
-                            )
-                        })
-                    } */}
                 </ul>
             </div>
+            {/* <SidebarRight /> */}
+
             <MobileNav />
         </>
 

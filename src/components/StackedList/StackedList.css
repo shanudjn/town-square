@@ -34,7 +34,10 @@
     align-items: flex-end;    
 }
 .div-vote{
+    width: 4rem;
     display: flex;
+    justify-content: space-evenly;
+
 }
 .vote-icon{
     cursor: pointer;

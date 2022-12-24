@@ -66,7 +66,6 @@ export const userSlice = createSlice({
     initialState: {
         token: "",
         isUserLoggedIn: false,
-
         userId: '',
         userProfile: {},
         userProfileStatus: "idle",
